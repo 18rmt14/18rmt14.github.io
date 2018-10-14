@@ -44,7 +44,7 @@ peer.on('disconnected',function(){
 //発信処理
 $('#make-call').submit(function(e){
     e.preventDefault();
-    const call = peer.call($('#callto-id').val(), localStream);
+    const call = peer.call($('#callto-id').val());
     setupCallEventHandlers(call);
 });
 
