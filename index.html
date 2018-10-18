@@ -2,7 +2,7 @@
 <html>
 <head lang="ja">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SkyWay JS SDK Tutorial</title>
+    <title>OculusGo webRTC</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <div class="pure-g">
@@ -33,4 +33,41 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript">
+    function ElementRequestFullscreen(element){
+            var list = [
+                "requestFullscreen",
+                "webkitRequestFullScreen",
+                "mozRequestFullScreen",
+                "msRequestFullscreen"
+            ];
+            var i;
+            var num = list.length;
+            for(i=0;i < num;i++){
+                if(element[list[i]]){
+                    element[list[i]]();
+                    return true;
+                }
+            }
+            return false;
+        }
+    
+        // ------------------------------------------------------------
+        // エレメントを取得
+        // ------------------------------------------------------------
+        // their-video という ID 属性のエレメントを取得する
+        var element = document.getElementById("their-video");
+    
+        // ------------------------------------------------------------
+        // エレメントをクリックすると実行されるイベント
+        // ------------------------------------------------------------
+        element.onclick = function (e){
+    
+            // エレメントをフルスクリーン表示する
+            ElementRequestFullscreen(element);
+    
+        };
+    
+        //-->
+        </script>
 </html>
