@@ -4,7 +4,7 @@ let localStream = null;
 let peer = null;
 let existingCall = null;
 
-navigator.mediaDevices.getUserMedia({video: true, audio: false})
+navigator.mediaDevices.getUserMedia({video: {width:2560,height:720,frameRate:{min:30,max:60}}, audio: false})
     .then(function (stream) {
         //success
         $('#my-video').get(0).srcObject = stream;
@@ -55,7 +55,7 @@ $('#end-call').click(function(){
 
 //着信処理
 peer.on('call',function(call){
-    call.answer(localStream);
+    call.answer(localStream,{videoCodec:'VP9'});
     setupCallEventHandlers(call);
 });
 
