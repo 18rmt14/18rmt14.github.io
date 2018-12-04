@@ -55,7 +55,7 @@ $('#end-call').click(function(){
 
 //着信処理
 peer.on('call',function(call){
-    call.answer(localStream,{videoCodec:'VP9'});
+    call.answer(localStream,);
     setupCallEventHandlers(call);
 });
 
